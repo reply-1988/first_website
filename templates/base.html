@@ -81,7 +81,7 @@
         <ul>
         {% for post in recent_post_list %}
             <li>
-            <a href="{{ post.get_absolute_urls }}">{{ post.title }}</a>
+            <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
             </li>
             {% empty %}
             暂无文章
@@ -94,7 +94,7 @@
         <ul>
             {% for date in date_list %}
             <li>
-                <a href="#">{{ date.year }}年{{ date.month }}月</a>
+                <a href="{% url 'mysite:archives' date.year date.month %}">{{ date.year }}年{{ date.month }}月</a>
             </li>
             {% empty %}
             暂无归档
@@ -107,7 +107,7 @@
         <ul>
             {% for category in categories_list %}
             <li>
-                <a href="#">{{ category.name }} <span class="post-count">(13)</span></a>
+                <a href="{% url 'mysite:category' category.pk %}">{{ category.name }} <span class="post-count">(13)</span></a>
             </li>
                 {% empty %}
                 暂无分类
