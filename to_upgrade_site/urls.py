@@ -19,5 +19,6 @@ from mysite import urls
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'', include(urls)),
+    url(r'', include('mysite.urls')),
+    url(r'', include('comments.urls')),
 ]
